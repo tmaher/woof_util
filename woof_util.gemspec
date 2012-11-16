@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'woof_util'
-  s.version = '0.0.0'
+  s.version = '0.0.1'
   s.date = '2012-11-15'
   s.summary = 'woof'
   s.description = 'catchment basin for misc crap'
