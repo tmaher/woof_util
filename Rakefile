@@ -12,11 +12,13 @@ def bump_version vtype=:patch
     
   vstring = [v[:major], v[:minor], v[:patch]].join "."
 
-  system "git stash save versionbump_#{vstring}"
+  stashdata = `git stash save versionbump_#{vstring}`
+  $stdin.write stashdata
+  
   File.write "VERSION", "#{vstring}\n"
   system "git add VERSION"
   system "git commit -m versionbump_to_#{vstring}"
-  system "git stash pop"
+  system "git stash pop" unless stashdata =~ /No local changes to save/
   vstring
 end
 
