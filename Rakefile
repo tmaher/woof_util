@@ -6,11 +6,13 @@ def read_version
 end
 
 def bump_version vtype=:patch
-  system "git stash save versionbump_#{new_version}"
   v = {}
   v[:major], v[:minor], v[:patch] = read_version.split '.'
-  v[vtype] += 1
+  v[vtype] = (v[vtype].to_i + 1).to_s
+    
   vstring = [v[:major], v[:minor], v[:patch]].join "."
+
+  system "git stash save versionbump_#{vstring}"
   File.write "VERSION", "#{vstring}\n"
   system "git add VERSION"
   system "git commit -m versionbump_to_#{vstring}"
