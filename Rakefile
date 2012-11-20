@@ -13,7 +13,7 @@ def bump_version vtype=:patch
   vstring = [v[:major], v[:minor], v[:patch]].join "."
 
   stashdata = `git stash save versionbump_#{vstring}`
-  $stdin.write stashdata
+  $stdout.write stashdata
   
   File.write "VERSION", "#{vstring}\n"
   system "git add VERSION"
