@@ -42,10 +42,15 @@ def rubygems_logout
   end
 end
 
+def push_to_github
+  system "git push github master"
+end
+
 namespace :gem do
   task :login do
     rubygems_login
   end
+
   task :logout do
     rubygems_logout
   end
@@ -54,4 +59,19 @@ namespace :gem do
     bump_version (ENV['name'] || :patch).to_sym
   end
 
+  task :github do
+    push_to_github
+  end
+
+  task :build do
+    system "gem build woof_util.gemspec"
+  end
+
+  task :rubygems do
+    system "gem push woof_util-#{read_version}.gem"
+  end
+  
+  task :pushify => [:bump_version, :github, :build, :rubygems] do
+  end
+  
 end
