@@ -2,6 +2,9 @@ require 'excon'
 require "highline/import"
 require "./lib/woof_util/gemhelp"
 
+include WoofUtil::Gemhelp
+#WoofUtil::Gemhelp.create_tasks
+
 namespace :gem do
   task :login do
     rubygems_login
@@ -20,11 +23,11 @@ namespace :gem do
   end
 
   task :build do
-    system "gem build woof_util.gemspec"
+    build_the_gem
   end
 
   task :rubygems do
-    system "gem push woof_util-#{read_version}.gem"
+    system "gem push #{gemname}-#{read_version}.gem"
   end
   
   task :pushify => [:bump_version, :github, :build, :rubygems] do
@@ -36,6 +39,8 @@ namespace :gem do
 
   task :name do
     puts gemname
+    puts Rake.application.tasks[0]
+    puts Rake.application.tasks[0].actions.map(&:source_location)
   end
   
 end
