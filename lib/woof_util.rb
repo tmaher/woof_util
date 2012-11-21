@@ -31,8 +31,4 @@ class WoofUtil
     buf.join
   end
 
-  def self.hello
-    "hello"
-  end
-  
 end
