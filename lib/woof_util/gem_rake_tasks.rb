@@ -13,7 +13,7 @@ module WoofUtil
 
     def bump_version vtype=((ENV["bump_type"] || :patch).to_sym)
       v = {}
-      vstring = read_version
+      vstring = read_gem_version
       puts "old: #{vstring}"
       v[:major], v[:minor], v[:patch] = vstring.split "."
       v[vtype] = (v[vtype].to_i + 1).to_s
