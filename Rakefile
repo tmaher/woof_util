@@ -1,6 +1,6 @@
 require 'excon'
 require "highline/import"
-require "./lib/woof_util/gemhelp"
+require "./lib/woof_util/gem_rake_tasks"
 
-include WoofUtil::Gemhelp
-create_tasks
+WoofUtil::GemRakeTasks.create_tasks
+
