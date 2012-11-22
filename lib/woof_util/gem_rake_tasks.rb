@@ -1,6 +1,10 @@
 module WoofUtil
   module GemRakeTasks
+    require "excon"
+    require "highline/import"
+    
     include Rake::DSL
+
     extend self
     
     def version
