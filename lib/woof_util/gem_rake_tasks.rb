@@ -11,7 +11,7 @@ module WoofUtil
       end
     end
 
-    def bump_version vtype=(ENV["bump_type"].to_sym || :patch)
+    def bump_version vtype=((ENV["bump_type"] || :patch).to_sym)
       v = {}
       vstring = read_version
       puts "old: #{vstring}"
