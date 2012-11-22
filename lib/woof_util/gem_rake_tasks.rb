@@ -70,7 +70,7 @@ module WoofUtil
       begin ; File.unlink gem_file_name
       rescue Errno::ENOENT ; end
       system "gem build #{gemspec_file_name}"
-      raise "can't build gem" unless File.exists gem_file_name
+      raise "can't build gem" unless File.exists? gem_file_name
     end
 
     def gem_file_name
