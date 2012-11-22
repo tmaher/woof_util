@@ -82,7 +82,6 @@ module WoofUtil
     end
 
     def push_to_rubygems
-      build_the_gem
       system "gem push #{gem_file_name}"
     end
 
