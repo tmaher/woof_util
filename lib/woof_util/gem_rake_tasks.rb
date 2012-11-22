@@ -3,7 +3,7 @@ module WoofUtil
     include Rake::DSL
     extend self
     
-    def read_gem_version
+    def version
       begin
         File.read("VERSION").chomp
       rescue Errno::ENOENT
@@ -13,7 +13,7 @@ module WoofUtil
 
     def bump_version vtype=((ENV["bump_type"] || :patch).to_sym)
       v = {}
-      vstring = read_gem_version
+      vstring = version
       puts "old: #{vstring}"
       v[:major], v[:minor], v[:patch] = vstring.split "."
       v[vtype] = (v[vtype].to_i + 1).to_s
