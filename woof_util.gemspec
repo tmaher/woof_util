@@ -1,3 +1,5 @@
+require 'find'
+
 Gem::Specification.new do |s|
   s.name = 'woof_util'
   s.version = File.read("VERSION").chomp
