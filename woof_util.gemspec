@@ -1,5 +1,3 @@
-require 'find'
-
 Gem::Specification.new do |s|
   s.name = 'woof_util'
   s.version = File.read("VERSION").chomp
@@ -8,10 +6,9 @@ Gem::Specification.new do |s|
   s.description = 'catchment basin for misc crap'
   s.authors = ["Tom Maher"]
   s.email = "tmaher@tursom.org"
-  s.files = []
-  Find.find "lib" do |f|
-    s.files.push(f) if FileTest.file? f
-  end
+  s.files = `git ls-files`.split("\n")
+  s.add_dependency "excon", "~> 0.16.10"
+  s.add_dependency "highline", "~> 1.6.15"
   s.homepage = "https://github.com/tmaher/woofutil"
 end
 
