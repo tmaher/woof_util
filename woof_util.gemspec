@@ -6,7 +6,10 @@ Gem::Specification.new do |s|
   s.description = 'catchment basin for misc crap'
   s.authors = ["Tom Maher"]
   s.email = "tmaher@tursom.org"
-  s.files = ["lib/woof_util.rb"]
+  s.files = []
+  Find.find "lib" do |f|
+    s.files.push(f) if FileTest.file? f
+  end
   s.homepage = "https://github.com/tmaher/woofutil"
 end
-  
+
