@@ -26,7 +26,7 @@ module WoofUtil
       stashdata = `git stash save versionbump_#{vstring}`
       $stdout.write stashdata
       
-      File.write "VERSION", "#{vstring}\n"
+      File.open("VERSION", "w") {|f| f.write "#{vstring}\n" }
       system "git add VERSION"
       system "git commit -m versionbump_to_#{vstring}"
       system "git stash pop" unless stashdata =~ /No local changes to save/
