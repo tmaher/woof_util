@@ -1,3 +1,10 @@
+PATH
+  remote: .
+  specs:
+    woof_util (0.0.13)
+      excon (~> 0.16.10)
+      highline (~> 1.6.15)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -8,5 +15,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  excon
-  highline
+  woof_util!
