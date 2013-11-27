@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.description = 'catchment basin for misc crap'
   s.authors = ["Tom Maher"]
   s.email = "tmaher@tursom.org"
+  s.license = "MIT"
   s.files = `git ls-files`.split("\n")
   s.add_dependency "excon", "~> 0.16.10"
   s.add_dependency "highline", "~> 1.6.15"
