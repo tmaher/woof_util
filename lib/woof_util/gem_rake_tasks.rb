@@ -27,7 +27,9 @@ module WoofUtil
       $stdout.write stashdata
       
       File.open("VERSION", "w") {|f| f.write "#{vstring}\n" }
+      system "bundle install"
       system "git add VERSION"
+      system "git add Gemfile.lock"
       system "git commit -m versionbump_to_#{vstring}"
       system "git stash pop" unless stashdata =~ /No local changes to save/
       puts "new: #{vstring}"
