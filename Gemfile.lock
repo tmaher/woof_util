@@ -10,9 +10,13 @@ GEM
   specs:
     excon (0.16.10)
     highline (1.6.15)
+    rake (10.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  excon
+  highline
+  rake
   woof_util!
