@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    woof_util (0.0.15)
+    woof_util (0.0.16)
       excon (~> 0.16.10)
       highline (~> 1.6.15)
 
